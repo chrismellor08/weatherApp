@@ -11,17 +11,20 @@ console.log(weatherData);
 
 function getWeatherData(data) {
   var zipCode = document.getElementById("input").value;
-  var replace = `http://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&mode=json&units=imperial&APPID=b2ed93467dc91e371772b60e25afa697`;
+  var replace = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&mode=json&units=imperial&APPID=b2ed93467dc91e371772b60e25afa697`;
   console.log(replace);
   xhr.open("GET", `${replace}`, false);
   xhr.send();
-  console.log(weatherData.city.name);
-  console.log(weatherData.list[0].main.temp);
-  console.log(weatherData.list[0].weather[0].description);
+  iconCode = `${weatherData.weather[0].icon}`
+  var icon = "http://openweathermap.org/img/w/" + iconCode + ".png";
+  console.log(weatherData.name);
+  console.log(weatherData.main.temp);
+  console.log(weatherData.weather[0].description);
   document.getElementById("card").innerHTML =
-  `<h1>Weather for ${weatherData.city.name}</h1><br>
-  <h2>${weatherData.list[0].weather[0].description} and ${weatherData.list[0].main.temp} degrees</h2></br>`
-  // <h2> The outlook for the evening is ${weatherData.list[0].weather[0].description} and No Wind</h2>`
+  `<h1>Current weather for ${weatherData.name}</h1><br>
+  <div class="icon"><img src="${icon}"></img></div>
+  <h2>${weatherData.weather[0].description} and ${weatherData.main.temp} degrees</h2></br>
+  `
 }
 
 
