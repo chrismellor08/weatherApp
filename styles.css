@@ -1,4 +1,21 @@
 img {
-	min-height: 300px;
-	min-width: 300px;
+	min-height: 200px;
+	min-width: 200px;
+	max-
+}
+
+.wrapper {
+	margin-top: 100px;
+	text-align: center;
+}
+
+.zip {
+	text-align: center;
+}
+.card {
+	margin: 0 auto;
+	text-align: center;
+	height: 50%;
+	width:  50%;
+ 	border: 2px solid black;
 }
